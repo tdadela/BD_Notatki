@@ -269,7 +269,7 @@ Jeśli \textbf{wszystkie klucze} kandydujące są \textbf{proste} to relacja jes
 \subsection{Trzecia postać normalna}
 \begin{itemize}
     \item Dla każdej nietrywialnej zależności funkcyjnej $\{A_1,\dots,A_n\} \rightarrow \{B\}$ zbiór atrybutów $\{A_1,\dots,A_n\}$ jest nadkluczem lub atrybut B jest elementem pewnego klucza kandydującego.
-    \item \textbf{Żaden atrubyt niekluczowy nie jest zależny funkcyjnie od innego atrybutu niekluczowego}.
+    \item \textbf{Żaden atrybut niekluczowy nie jest zależny funkcyjnie od innego atrybutu niekluczowego}.
 \end{itemize}
 
 \textbf{Dekompozycja do 3PN}
@@ -586,10 +586,10 @@ Np. \textbf{konserwatywny	protokół 2PL}.
 \end{itemize}
 
 \subsection{Blokada U}
-Blokada	U - gdy element	danych	\textbf{jest odczytywany i być	może będzie	potem aktualizowany}. (Podnoszenie S na X moze prowadzić do zakleszczenia).\\
+Blokada	U - gdy element	danych	\textbf{jest odczytywany i być	może będzie	potem aktualizowany}. (Podnoszenie S na X może prowadzić do zakleszczenia).\\
 \begin{tabular}{|c|c|c|c|}
 \hline
-     przyznana v / przyznawana $\rightarrow$ & S & X & U \\
+    przyznana ↓ / przyznawana $\rightarrow$ & S & X & U \\
 \hline
     S & tak & nie & tak\\
 \hline
@@ -676,7 +676,7 @@ Dla każdej wersji $X_i$ elementu X przechowywane są dwa znaczniki czasu TS\_od
     \item Jeśli transakcja T czyta X i \textbf{odczytuje wartość} wersji $X_i$, wartość $TS\_odczytu(X_i) = max \{TS\_odczytu(X_i), TS(T)\}.$
     \item Jeżeli transakcja T wykonuje operację \textbf{zapisz\_element(X)} i dla wersji i-tej elementu X o maksymalnym znaczniku takim że $TS\_zapisu(X_i) <= TS(T)$, zachodzi:
     \begin{itemize}
-        \item $TS\_odczytu(X_i) > TS(T)$, wówczas transakcja T zostaje \textbf{wycofana}i potem będzie uruchomiona z \textbf{nowym znacznikiem czasowym}.
+        \item $TS\_odczytu(X_i) > TS(T)$, wówczas transakcja T zostaje \textbf{wycofana} i potem będzie uruchomiona z \textbf{nowym znacznikiem czasowym}.
         \item $TS\_zapisu(X_i) = TS(T)$, to wersja $X_i$ jest \textbf{modyfikowana}.
         \item $TS\_zapisu(X_i) < TS(T)$, wówczas tworzona jest \textbf{nowa wersja} $X_j$ elementu X z wartościami $TS\_odczytu(X_j) = TS\_zapisu(X_j) = TS(T)$. 
     \end{itemize} 
